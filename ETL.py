@@ -1,7 +1,6 @@
 import urllib.request
 import json
 import pandas as pd
-import sys
 import os
 
 cookTime = "cookTime"
