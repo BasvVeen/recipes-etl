@@ -6,4 +6,5 @@
 
 ### Python version used
 I have used Python version 3.9.18
+
 ZET OVERAL DOCTSTRINGS BIJ :  '''Takes in a number n, returns the square of n'''
