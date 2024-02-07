@@ -19,3 +19,6 @@ I have used Python version 3.9.18.
 
 ### How to run
 
+To run the ETL, open the ETL.py file in your interpreter and make sure all of the packages are installed and that the recipes.json file is present in the same directory as the .py file. Then connect your interpreter to the Python environment in which you installed the necessary packages. Then run the file, it will create the .csv file in the same directory as the .py file. 
+
+### What it does and how it works
