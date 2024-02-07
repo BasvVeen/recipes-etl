@@ -25,4 +25,4 @@ To run the ETL, open the ETL.py file in your interpreter and make sure all of th
 
 This ETL loads a json file from the url provided. As the json file was not yet formatted in the right way (not separated by commas and put between two [], I load it using list comprehension in combination with the loads function from the json library. It goes through the url line by line. 
 
-In case one is not connected to the internet, I have build in a try-except clause that will still run with the use of the downloaded recipes.json file. Just like the url part, this one goes through the json file line by line. 
+In case one is not connected to the internet, I have build in a try-except clause that will still run with the use of the downloaded recipes.json file. Just like the url part, this one goes through the json file line by line and loads in into a pandas dataframe. 
