@@ -22,3 +22,7 @@ I have used Python version 3.9.18.
 To run the ETL, open the ETL.py file in your interpreter and make sure all of the packages are installed and that the recipes.json file is present in the same directory as the .py file. Then connect your interpreter to the Python environment in which you installed the necessary packages. Then run the file, it will create the .csv file in the same directory as the .py file. 
 
 ### What it does and how it works
+
+This ETL loads a json file from the url provided. As the json file was not yet formatted in the right way (not separated by commas and put between two [], I load it using list comprehension in combination with the loads function from the json library. It goes through the url line by line. 
+
+In case one is not connected to the internet, I have build in a try-except clause that will still run with the use of the downloaded recipes.json file. Just like the url part, this one goes through the json file line by line. 
