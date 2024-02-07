@@ -7,7 +7,7 @@
 - json
 - os
 
-In order to run the code you need to open it in the interpreter/.editor of your choice. I personally used PyCharm but Spyder or Anaconda work as well. To install the packages/libraries utilised open the terminal belonging to your Python environment.
+In order to run the code you need to open it in the interpreter/editor of your choice. I personally used PyCharm but Spyder or Anaconda work as well. To install the packages/libraries utilised open the terminal belonging to your Python environment.
 
 In the terminal, download and install the packages using the following command : pip install .... 
 
