@@ -1,4 +1,5 @@
 import urllib.request
+import urllib.error
 import json
 import pandas as pd
 import os
@@ -16,9 +17,10 @@ def load_json_from_url(url):
 
             dataframe = pd.DataFrame(data)
 
-    except:
+    except urllib.error.URLError:
+        print("URLError: Not connected to the internet, using local file.")
         directory = os.getcwd()
-        with open(directory + '\\recipes.json') as f:
+        with open(directory + "\\recipes.json") as f:
             data = [json.loads(line) for line in f]
 
             dataframe = pd.DataFrame(data)
@@ -36,9 +38,9 @@ def filter_recipes(ingredients, df):
 
 
 def make_numeric(columns, dataframe):
-    '''This function returns the input columns as a numeric type by removing any .
+    """This function returns the input columns as a numeric type by removing any .
 
-    The inputs are the filtered dataframe and the columns you want to make numeric.'''
+    The inputs are the filtered dataframe and the columns you want to make numeric."""
 
     dataframe[columns] = dataframe[columns].replace(r'[\D]', '', regex=True)
 
@@ -53,7 +55,7 @@ def determine_difficulty(times, recipes):
 
     total_time = times.loc[:, [cookTime, prepTime]].sum(axis=1)
 
-    recipes["difficulty"] = total_time.apply(lambda x: 'Hard' if x > 60 else ('Medium' if 30 < x < 60 else
+    recipes["difficulty"] = total_time.apply(lambda x: "Hard" if x > 60 else ("Medium" if 30 < x < 60 else
                                                                              ("Easy" if 0 < x < 30 else "Unknown")))
 
     return recipes
