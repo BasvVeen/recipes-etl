@@ -1,6 +1,6 @@
 # recipes-etl
 
-- what libraries : pandas, numpy
+- what libraries : pandas, numpy, urllib.request, json, os
 - how to install the libraries
 
 
