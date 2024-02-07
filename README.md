@@ -17,6 +17,5 @@ Wait untill the previous one is installed in your Python environment and repeat 
 ### Python version used
 I have used Python version 3.9.18.
 
-### Run instructions
+### How to run
 
-ZET OVERAL DOCTSTRINGS BIJ :  '''Takes in a number n, returns the square of n'''
