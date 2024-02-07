@@ -36,3 +36,5 @@ Then the script determines the difficulty by use of list comprehension as well. 
 Then using list comprehension with a couple of nested if else statements it adds a new column to the dataframe, containing the difficulty of the recipes, based on the total of the cookTime and the prepTime (totalTime > 60 min then Hard, 30 min < totalTime < 60 min and Easy when < 30 min). When the column is empty or if the value falls outside of the indicated ranges, the difficulty will state 'Unknown'. 
 
 Then finally, it writes the resulting dataframe to a csv file in the same folder as the .py file it is running. It finds the current directory using the os.getcwd() function, and creates the csv there using to_csv from the pandas library. To confirm the file is created, it prints a statement that it has succeeded and the location in which it is placed. 
+
+I then place everything in a main function to make sure that if the function from the script are used somewhere else the whole code will not be executed. 
