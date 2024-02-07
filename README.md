@@ -23,10 +23,12 @@ To run the ETL, open the ETL.py file in your interpreter and make sure all of th
 
 ### What it does and how it works
 
-This ETL loads a json file from the url provided. As the json file was not yet formatted in the right way (not separated by commas and put between two [], I load it using list comprehension in combination with the loads function from the json library. It goes through the url line by line. 
+This ETL loads a json file from the url provided. As the json file was not yet formatted in the right way (not separated by commas and put between two [], it loads it using list comprehension in combination with the loads function from the json library. It goes through the url line by line. 
 
 In case one is not connected to the internet, I have build in a try-except clause that will still run with the use of the downloaded recipes.json file. Just like the url part, this one goes through the json file line by line and loads in into a pandas dataframe. 
 
 After loading in the data, the script filters the dataframe to only give the rows that have some form of chile in their ingredients. This includes misspellings and the singular form of the words (so chile, chili, chilies, chiles, chilis). By filtering for chile and chili, this will encompass all options. 
 
 Then, in order to add the cookTime and prepTime columns together to get the total cooking time, the columns need to be of the numeric type. As the cells in the column are strings and can thus also contain empty strings or letters/special characters. So first those need to be removed. This script achieves this by using a regex expression combined with the replace function. This replaces all non-numeric characters in the prepTime and cookTime columns by an empty string. Afterwards the columns can be converted to the numeric type with the help of the to_numeric function from the pandas library. The empty strings get replaced by NAN values, but this does not affect the original dataframe, and does not impact the addition of the columns. 
+
+Then the script determines the difficulty by use of list comprehension as well. First the two columns (output from previous function) are summed together along the 1 axis (along the rows). The sum function ignores NAN values, so summing will result in non-NAN values, even if one of the the columns contain one. Then using list comprehension with a couple of nested if else statements it adds a new column to the dataframe, containing the difficulty of the recipes, based on the total of the cookTime and the prepTime. When the column is empty or if the value falls outside of the indicated ranges, the difficulty states 'Unknown'. 
