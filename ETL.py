@@ -38,7 +38,8 @@ def filter_recipes(ingredients, df):
 
 
 def make_numeric(columns, dataframe):
-    """This function returns the input columns as a numeric type by removing any .
+    """This function returns the input columns as a numeric type by removing any 
+    non-numeric characters and replacing them by empty strings. Empty cells become NaN.
 
     The inputs are the filtered dataframe and the columns you want to make numeric."""
 
@@ -62,6 +63,7 @@ def determine_difficulty(times, recipes):
 
 
 def write_to_csv(output):
+    """This function writes a dataframe to a csv file in the working directory."""
     directory = os.getcwd()
 
     output.to_csv(directory + "\\chilies_recipes_wdifficulty.csv", index=False)
